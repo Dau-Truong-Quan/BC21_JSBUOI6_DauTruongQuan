@@ -94,4 +94,27 @@ function timSoDuongCuoi(){
     
 }
 
+function xepLaiMang(){
+   
+
+    numbers.sort();
+    document.getElementById('txt__mangSauKhiXep').innerHTML = `mảng xếp theo giá trị tăng dần: ${numbers}`;
+    
+    
+     
+ }
+
+ function doiViTri(){
+    var viTri1 = document.getElementById("viTri1").value;
+    var viTri2 = document.getElementById("viTri2").value;
+    var tam = numbers[viTri1];
+    numbers[viTri1] = numbers[viTri2];
+    numbers[viTri2] = tam;
+
+    document.getElementById('txt__mangSauKhiDoi').innerHTML = `mảng hiện tại: ${numbers}`;
+    
+    
+     
+ }
+ 
 
