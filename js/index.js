@@ -25,6 +25,8 @@ function demSoDuong(){
     
 }
 
+
+
 function tongSoDuong(){
     let tong = 0;
 
@@ -117,4 +119,85 @@ function xepLaiMang(){
      
  }
  
+/*Tạo hàm kiểm tra số nguyên tố trong JavaScript*/
+function isprime(n){
+    //flag = 0 => không phải số nguyên tố
+    //flag = 1 => số nguyên tố
+    
+    let flag = 1;
 
+    if (n <2) return flag = 0; /*Số nhỏ hơn 2 không phải số nguyên tố => trả về 0*/
+    
+    /*Sử dụng vòng lặp while để kiểm tra có tồn tại ước số nào khác không*/
+    let i = 2;
+    while(i <n){
+        if( n%i==0 ) {
+            flag = 0;
+            break; /*Chỉ cần tìm thấy 1 ước số là đủ và thoát vòng lặp*/
+        }
+        i++;
+    }
+
+    return flag;
+}
+
+function kiemTraSoNguyenToDauTien(){
+    for (let i = numbers.length-1; i >=0; i --){
+        if (isprime(numbers[i])==1){
+            document.getElementById('txt__firstPrime').innerHTML = `số nguyên tố đầu tiên trong mảng: ${numbers[i]}`;
+            return;
+        }
+    }
+
+    document.getElementById('txt__firstPrime').innerHTML = `số nguyên tố đầu tiên trong mảng không có {-1}`;
+}
+function timSoNguyen(){
+    let a = 0;
+    for (let i = numbers.length-1; i >=0; i--){
+        if (Number.isInteger(numbers[i]*1) === true ){
+            a++;
+        }
+    }
+    document.getElementById('txt__timSoNguyen').innerHTML = `số nguyên trong mảng: ${a}`;
+}
+
+function demSoAm(){
+    let dem = 0;
+
+    for (let i=0;i<numbers.length;i++)
+
+    {
+
+           if (numbers[i]<0)
+           dem ++;
+                  
+
+    }
+    return dem;
+    
+    
+}
+function demSoDuongSoSanh(){
+    let dem = 0;
+
+    for (let i=0;i<numbers.length;i++)
+
+    {
+
+           if (numbers[i]>0)
+           dem ++;
+                  
+
+    }
+    return dem;
+    
+    
+}
+
+function soSanh(){
+    if(demSoAm() > demSoDuongSoSanh()){
+        document.getElementById('txt__sosanh').innerHTML = `số âm nhiều hơn`;
+    }else {
+        document.getElementById('txt__sosanh').innerHTML = `số dương nhiều hơn`;
+    }
+}
